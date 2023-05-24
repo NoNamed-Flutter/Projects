@@ -3,32 +3,31 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'Bottom Navigation Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(),
+      home: MainPage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MainPage extends StatefulWidget {
+  const MainPage({Key? key}) : super(key: key);
+
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<MainPage> createState() => _MainPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
-
-  static List<Widget> _pages = [
-    Page1(),
-    Page2(),
-    Page3(),
-  ];
+  // List<Widget> _widgetOption = <Widget>[
+  //   HomePage(),
+  //   CalenderPage(),
+  //   ProfilePage(),
+  // ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -36,73 +35,205 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  Map<String, WidgetBuilder> _routeBuilders(BuildContext context, int index) {
+    return {
+      '/': (context) {
+        return [
+          HomePage(),
+          CalenderPage(),
+          ProfilePage(),
+        ].elementAt(index);
+      },
+    };
+  }
+
+  Widget _buildOffstageNavigator(int index) {
+    var routeBuilders = _routeBuilders(context, index);
+
+    return Offstage(
+      offstage: _selectedIndex != index,
+      child: Navigator(
+        onGenerateInitialRoutes: (navigator, initialRoute) {
+          return [
+            if (routeBuilders.containsKey(initialRoute))
+              MaterialPageRoute(
+                  builder: (context) => routeBuilders[initialRoute]!(context)),
+          ];
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Bottom Navigation Demo'),
-      ),
-      body: _pages[_selectedIndex],
+      backgroundColor: Colors.white,
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.question_answer),
-            label: 'Page',
+            icon: Icon(Icons.calendar_month),
+            label: 'Calendar',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border),
-            label: 'Heart',
-          ),
+            icon: Icon(Icons.group),
+            label: 'user',
+          )
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
+      ),
+      body: Stack(
+        children: [
+          _buildOffstageNavigator(0),
+          _buildOffstageNavigator(1),
+          _buildOffstageNavigator(2),
+        ],
       ),
     );
   }
 }
 
-class Page1 extends StatefulWidget {
-  @override
-  _Page1State createState() => _Page1State();
-}
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
 
-class _Page1State extends State<Page1> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Page 1'),
+    return Container(
+      color: Colors.lightBlue,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Container(
+            child: Text(
+              'Screen 1',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+              ),
+            ),
+            margin: EdgeInsets.all(16),
+          ),
+          MaterialButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Screen2(),
+                ),
+              );
+            },
+            child: Text('Go to next screen'),
+            color: Colors.white,
+          ),
+        ],
+      ),
     );
   }
 }
 
-class Page2 extends StatefulWidget {
-  @override
-  _Page2State createState() => _Page2State();
-}
+class CalenderPage extends StatelessWidget {
+  const CalenderPage({Key? key}) : super(key: key);
 
-class _Page2State extends State<Page2> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Page 2'),
+    return Container(
+      color: Colors.red,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Container(
+            child: Text(
+              'Screen 2',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+              ),
+            ),
+            margin: EdgeInsets.all(16),
+          ),
+          MaterialButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Screen2(),
+                ),
+              );
+            },
+            child: Text('Go to next screen'),
+            color: Colors.white,
+          ),
+        ],
+      ),
     );
   }
 }
 
-class Page3 extends StatefulWidget {
-  @override
-  _Page3State createState() => _Page3State();
-}
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({Key? key}) : super(key: key);
 
-class _Page3State extends State<Page3> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Page 3'),
+    return Container(
+      color: Colors.green,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Container(
+            child: Text(
+              'Screen 3',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+              ),
+            ),
+            margin: EdgeInsets.all(16),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class Screen2 extends StatelessWidget {
+  const Screen2({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        color: Colors.orange,
+        alignment: Alignment.center,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              child: Text(
+                'InScreen',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+              margin: EdgeInsets.all(16),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('Go Back'),
+              color: Colors.white,
+            )
+          ],
+        ),
+      ),
     );
   }
 }

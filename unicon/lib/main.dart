@@ -13,7 +13,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int _inkwellbutton = 0;
   bool switchValue = false;
   int _cnt = 0;
 
@@ -71,7 +70,7 @@ class _MyAppState extends State<MyApp> {
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -133,6 +132,14 @@ class _MyAppState extends State<MyApp> {
                   height: 80,
                   width: double.infinity,
                   fit: BoxFit.cover,
+                ),
+                Center(
+                  child: GestureDetector(
+                    child: Image.asset(
+                      "assets/img/menubutton.png",
+                      height: 60,
+                    ),
+                  ),
                 )
               ],
             )

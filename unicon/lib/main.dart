@@ -56,7 +56,7 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(26, 72, 0, 180),
+              padding: const EdgeInsets.fromLTRB(26, 40, 0, 43),
               child: Row(
                 children: [
                   Image.asset(
@@ -74,19 +74,16 @@ class _MyAppState extends State<MyApp> {
                 ],
               ),
             ),
-            Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                    child: _img[_cnt],
-                    onTap: () {
-                      setState(() {
-                        _cnt ^= 1; //^=는 XOR연산자로 1이면 0으로 0이면 1로 변환
-                      });
-                    },
-                  ),
-                ]),
+            Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+              GestureDetector(
+                child: _img[_cnt],
+                onTap: () {
+                  setState(() {
+                    _cnt ^= 1; //^=는 XOR연산자로 1이면 0으로 0이면 1로 변환
+                  });
+                },
+              ),
+            ]),
             SizedBox(
               height: 50, //빈공간은 만들기 위한 박스
             ),

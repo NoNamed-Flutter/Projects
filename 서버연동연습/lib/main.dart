@@ -11,35 +11,41 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomePage());
+    return MaterialApp(
+      home: HomePage(),
+    );
   }
 }
 
 class Test {
-  int? userId; // 사용자 ID
-  int? id; // 아이디
-  String? title; // 제목
+  int? userId;
+  int? id;
+  String? title;
 
-  Test({this.userId, this.id, this.title}); // 생성자
+  Test({
+    this.userId,
+    this.id,
+    this.title,
+  });
 
   Test.fromJson(Map<String, dynamic> json) {
-    userId = json['userId']; // JSON 데이터에서 'userId' 키의 값을 userId 변수에 할당
-    id = json['id']; // JSON 데이터에서 'id' 키의 값을 id 변수에 할당
-    title = json['title']; // JSON 데이터에서 'title' 키의 값을 title 변수에 할당
+    userId = json['userId'];
+    id = json['id'];
+    title = json['title'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
-    data['userId'] = userId; // userId 변수의 값을 'userId' 키로 지정하여 data 맵에 추가
-    data['id'] = id; // id 변수의 값을 'id' 키로 지정하여 data 맵에 추가
-    data['title'] = title; // title 변수의 값을 'title' 키로 지정하여 data 맵에 추가
-    return data; // data 맵 반환
+    data['userId'] = userId;
+    data['id'] = id;
+    data['title'] = title;
+    return data;
   }
 }
 
 Future<Test> asd() async {
-  final response = await http
-      .get(Uri.parse("https://jsonplaceholder.typicode.com/albums/1"));
+  final response =
+      await http.get(Uri.parse("https://jsonplaceholder.typicode.com/albums"));
 
   if (response.statusCode == 200) {
     return Test.fromJson(jsonDecode(response.body));

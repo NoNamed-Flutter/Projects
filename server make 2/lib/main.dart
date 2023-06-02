@@ -57,7 +57,12 @@ class _HomePageState extends State<HomePage> {
           future: model,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return Text(snapshot.data!.tests![0].title.toString());
+              return ListView.builder(
+                itemCount: snapshot.data!.tests!.length,
+                itemBuilder: (context, index) {
+                  return Text(snapshot.data!.tests![index].title.toString());
+                },
+              );
             } else if (snapshot.hasError) {
               return Text(snapshot.error.toString());
             } else {

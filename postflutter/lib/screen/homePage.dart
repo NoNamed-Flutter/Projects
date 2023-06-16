@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:postflutter/model.dart';
 import 'package:postflutter/screen/listPage.dart';
 import 'package:http/http.dart' as http;
 
@@ -12,9 +11,18 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-Future postServer(String userid, String birthday, String name) async {
-  print('$userid/$birthday/$name');
+Future delServer(String userid) async {
+  var response = await http.delete(
+      Uri.parse('http://192.168.1.76:8080/delete?id=$userid'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({"user_id": userid}));
 
+  if (response.statusCode != 200) {
+    throw Exception(response.body);
+  }
+}
+
+Future postServer(String userid, String birthday, String name) async {
   var response = await http.post(
     Uri.parse('http://192.168.1.76:8080/post'),
     headers: {'Content-Type': 'application/json'}, //필수
@@ -91,6 +99,12 @@ class _HomePageState extends State<HomePage> {
               child: const Text('Post Server'),
               onPressed: () {
                 postServer(useridText.text, birthdayText.text, nameText.text);
+              },
+            ),
+            MaterialButton(
+              child: const Text('Del UserID'),
+              onPressed: () {
+                delServer(useridText.text);
               },
             )
           ],

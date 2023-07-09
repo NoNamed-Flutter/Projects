@@ -11,6 +11,16 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
+Future updateServer(String name) async {
+  var response = await http.patch(Uri.parse('http://192.168.1.76:8080/post'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({"name": name}));
+
+  if (response.statusCode != 200) {
+    throw Exception(response.body);
+  }
+}
+
 Future delServer(String userid) async {
   var response = await http.delete(
       Uri.parse('http://192.168.1.76:8080/delete?id=$userid'),
@@ -94,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                     ));
               },
             ),
-            const SizedBox(height: 300),
+            const SizedBox(height: 250),
             MaterialButton(
               child: const Text('Post Server'),
               onPressed: () {
@@ -105,6 +115,12 @@ class _HomePageState extends State<HomePage> {
               child: const Text('Del UserID'),
               onPressed: () {
                 delServer(useridText.text);
+              },
+            ),
+            MaterialButton(
+              child: const Text('Update Name'),
+              onPressed: () {
+                updateServer(nameText.text);
               },
             )
           ],

@@ -32,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
     controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setBackgroundColor(Colors.white)
-      ..loadRequest(Uri.parse('https://pub.dev/'));
+      ..loadRequest(Uri.parse('https://www.youtube.com/'));
   }
 
   @override

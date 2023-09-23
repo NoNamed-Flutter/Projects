@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/postflutter/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/postflutter/build" />
+      <excludeFolder url="file://$MODULE_DIR$/postflutter/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/unicon/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/unicon/build" />
+      <excludeFolder url="file://$MODULE_DIR$/unicon/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/Bottom Navigation2/build" />
+      <excludeFolder url="file://$MODULE_DIR$/Bottom Navigation2/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/Bottom Navigation2/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/server make 3/build" />
+      <excludeFolder url="file://$MODULE_DIR$/server make 3/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/server make 3/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/Bottom Navigation/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/Bottom Navigation/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/Bottom Navigation/build" />
+      <excludeFolder url="file://$MODULE_DIR$/버튼 색깔 바뀌는 앱 만들기/fulle/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/버튼 색깔 바뀌는 앱 만들기/fulle/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/버튼 색깔 바뀌는 앱 만들기/fulle/build" />
+      <excludeFolder url="file://$MODULE_DIR$/server make 1/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/server make 1/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/server make 1/build" />
+      <excludeFolder url="file://$MODULE_DIR$/sharedpackage/build" />
+      <excludeFolder url="file://$MODULE_DIR$/sharedpackage/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/sharedpackage/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/webview/build" />
+      <excludeFolder url="file://$MODULE_DIR$/webview/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/webview/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/자기소개앱 만들기/introduce_myself/build" />
+      <excludeFolder url="file://$MODULE_DIR$/자기소개앱 만들기/introduce_myself/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/자기소개앱 만들기/introduce_myself/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/pageview/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/pageview/build" />
+      <excludeFolder url="file://$MODULE_DIR$/pageview/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/server make 2/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/server make 2/build" />
+      <excludeFolder url="file://$MODULE_DIR$/server make 2/.dart_tool" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

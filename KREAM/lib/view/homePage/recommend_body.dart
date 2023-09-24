@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -20,7 +18,7 @@ class _ReCommandBodyState extends State<ReCommandBody> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -77,7 +75,7 @@ class _ReCommandBodyState extends State<ReCommandBody> {
 
                 Padding(
                   padding: EdgeInsets.only(top: 46.h, bottom: 40.h),
-                  child: Divider(height: 2),
+                  child: const Divider(height: 2),
                 ),
                 //
                 /// Just Dropped Title
@@ -96,7 +94,7 @@ class _ReCommandBodyState extends State<ReCommandBody> {
                 /// 발매 상품 Subtitle
                 Padding(
                   padding: EdgeInsets.only(bottom: 30.h),
-                  child: Text(
+                  child: const Text(
                     '발매 상품',
                     style: TextStyle(color: Color(0xFF919191)),
                   ),
@@ -108,7 +106,7 @@ class _ReCommandBodyState extends State<ReCommandBody> {
                   child: SizedBox(
                     height: 468.h,
                     child: ListView.builder(
-                      physics: BouncingScrollPhysics(),
+                      physics: const BouncingScrollPhysics(),
                       scrollDirection: Axis.horizontal,
                       itemCount: clothesList.length,
                       itemBuilder: (context, index) {
@@ -143,7 +141,7 @@ class _ReCommandBodyState extends State<ReCommandBody> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(bottom: 28.h),
-                  child: Text(
+                  child: const Text(
                     '인기 탑 15 브랜드',
                     style: TextStyle(color: Color(0xFF919191)),
                   ),
@@ -221,7 +219,7 @@ class _ReCommandBodyState extends State<ReCommandBody> {
                 /// 인기 상품 Subtitle
                 Padding(
                   padding: EdgeInsets.only(bottom: 28.h),
-                  child: Text(
+                  child: const Text(
                     '인기 상품',
                     style: TextStyle(color: Color(0xFF919191)),
                   ),
@@ -233,7 +231,7 @@ class _ReCommandBodyState extends State<ReCommandBody> {
                   child: SizedBox(
                     height: 468.h,
                     child: ListView.builder(
-                      physics: BouncingScrollPhysics(),
+                      physics: const BouncingScrollPhysics(),
                       scrollDirection: Axis.horizontal,
                       itemCount: clothesList.length,
                       itemBuilder: (context, index) {
@@ -274,7 +272,7 @@ class _ReCommandBodyState extends State<ReCommandBody> {
                 /// #웰컴어텀챌린지 Subtitle
                 Padding(
                   padding: EdgeInsets.only(bottom: 28.h),
-                  child: Text(
+                  child: const Text(
                     '#웰컴어텀챌린지',
                     style: TextStyle(color: Color(0xFF919191)),
                   ),
@@ -283,7 +281,7 @@ class _ReCommandBodyState extends State<ReCommandBody> {
                 Padding(
                   padding: EdgeInsets.only(bottom: 25.h),
                   child: SingleChildScrollView(
-                    physics: BouncingScrollPhysics(),
+                    physics: const BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [

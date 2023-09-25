@@ -18,7 +18,7 @@ class _ReCommandBodyState extends State<ReCommandBody> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
+      physics: const ClampingScrollPhysics(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -27,6 +27,7 @@ class _ReCommandBodyState extends State<ReCommandBody> {
             width: 648.w,
             height: 587.h,
             child: PageView(
+              physics: const ClampingScrollPhysics(),
               children: [
                 Container(width: 100.w, height: 100.w, color: Colors.red),
                 Container(width: 100.w, height: 100.w, color: Colors.orange),
@@ -106,7 +107,7 @@ class _ReCommandBodyState extends State<ReCommandBody> {
                   child: SizedBox(
                     height: 468.h,
                     child: ListView.builder(
-                      physics: const BouncingScrollPhysics(),
+                      physics: const ClampingScrollPhysics(),
                       scrollDirection: Axis.horizontal,
                       itemCount: clothesList.length,
                       itemBuilder: (context, index) {
@@ -231,7 +232,7 @@ class _ReCommandBodyState extends State<ReCommandBody> {
                   child: SizedBox(
                     height: 468.h,
                     child: ListView.builder(
-                      physics: const BouncingScrollPhysics(),
+                      physics: const ClampingScrollPhysics(),
                       scrollDirection: Axis.horizontal,
                       itemCount: clothesList.length,
                       itemBuilder: (context, index) {
@@ -281,7 +282,7 @@ class _ReCommandBodyState extends State<ReCommandBody> {
                 Padding(
                   padding: EdgeInsets.only(bottom: 25.h),
                   child: SingleChildScrollView(
-                    physics: const BouncingScrollPhysics(),
+                    physics: const ClampingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [

@@ -295,7 +295,122 @@ class _ReCommandBodyState extends State<ReCommandBody> {
                       ],
                     ),
                   ),
-                )
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(bottom: 40.h),
+            child: Container(width: 648.w, height: 589.h, color: Colors.red),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 25.w, right: 25.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                /// New In Title
+                Padding(
+                  padding: EdgeInsets.only(bottom: 10.h),
+                  child: Text(
+                    'New In',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30.sp,
+                    ),
+                  ),
+                ),
+
+                /// 신규 등록 상품 Subtitle
+                Padding(
+                  padding: EdgeInsets.only(bottom: 28.h),
+                  child: const Text(
+                    '신규 등록 상품',
+                    style: TextStyle(color: Color(0xFF919191)),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 44.h),
+                  child: SizedBox(
+                    height: 468.h,
+                    child: ListView.builder(
+                      physics: const ClampingScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      itemCount: clothesList.length,
+                      itemBuilder: (context, index) {
+                        return Clothes(
+                          title: clothesList[index]['title'],
+                          product: clothesList[index]['product'],
+                          content: clothesList[index]['content'],
+                          tagNumber: clothesList[index]['tagNumber'],
+                          tags: clothesList[index]['tags'],
+                          discount: clothesList[index]['discount'],
+                          price: clothesList[index]['price'],
+                          purchase: clothesList[index]['purchase'],
+                          icon: clothesList[index]['icon'],
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(bottom: 40.h),
+            child: Container(width: 648.w, height: 589.h, color: Colors.red),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 25.w, right: 25.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                /// Timeless Sneakers Title
+                Padding(
+                  padding: EdgeInsets.only(bottom: 10.h),
+                  child: Text(
+                    'Timeless Sneakers',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30.sp,
+                    ),
+                  ),
+                ),
+
+                /// 가을에 더 신고 싶은 독일군 스니커즈 Subtitle
+                Padding(
+                  padding: EdgeInsets.only(bottom: 28.h),
+                  child: const Text(
+                    '가을에 더 신고 싶은 독일군 스니커즈',
+                    style: TextStyle(color: Color(0xFF919191)),
+                  ),
+                ),
+
+                Padding(
+                  padding: EdgeInsets.only(bottom: 44.h),
+                  child: SizedBox(
+                    height: 468.h,
+                    child: ListView.builder(
+                      physics: const ClampingScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      itemCount: clothesList.length,
+                      itemBuilder: (context, index) {
+                        return Clothes(
+                          title: clothesList[index]['title'],
+                          product: clothesList[index]['product'],
+                          content: clothesList[index]['content'],
+                          tagNumber: clothesList[index]['tagNumber'],
+                          tags: clothesList[index]['tags'],
+                          discount: clothesList[index]['discount'],
+                          price: clothesList[index]['price'],
+                          purchase: clothesList[index]['purchase'],
+                          icon: clothesList[index]['icon'],
+                        );
+                      },
+                    ),
+                  ),
+                ),
               ],
             ),
           )
